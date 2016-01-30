@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
  class Drum : MonoBehaviour {
-    public Miss miss;
+    public Multiplyer multiplyerHandler;
     public bool colision;
     public int drumKey;
     public bool keyDown;
@@ -27,7 +27,7 @@ using System.Collections.Generic;
             keyDown = true;
             if (!colision)
             {
-                miss.miss();
+                multiplyerHandler.miss();
             }
             else
             {
@@ -48,7 +48,7 @@ using System.Collections.Generic;
                     }
                     else if (col.tag == "rest")
                     {
-                        miss.miss();
+                        multiplyerHandler.miss();
                     }
                 }
                

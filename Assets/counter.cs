@@ -124,7 +124,12 @@ public class counter : MonoBehaviour {
 
         public Rule removeRule()
         {
-            return rules.Pop();
+            if (rules.Count > 0)
+            {
+                return rules.Pop();
+            }
+
+            return null;
         }
 
         public bool getRulesForBeat(int button, int beatNum)

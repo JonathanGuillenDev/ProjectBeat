@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Miss : MonoBehaviour {
+public class Miss : MonoBehaviour
+{
+
+    public Multiplyer multiplyerHandler;
 
 	// Use this for initialization
 	void Start () {
@@ -15,10 +18,6 @@ public class Miss : MonoBehaviour {
     void OnTriggerExit2D(Collider2D col)
     {
         if (col.tag == "beat")
-            miss();
-    }
-    public void miss()
-    {
-        print("miss");
+            multiplyerHandler.miss();
     }
 }
