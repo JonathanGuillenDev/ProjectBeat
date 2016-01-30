@@ -57,7 +57,7 @@ public class BeatGenerator : MonoBehaviour
     {
         print("SINGLE" + ((float)count * distance).ToString());
 
-        GameObject prefab = Instantiate(Resources.Load("beatBar", typeof(GameObject)), new Vector3(-2, count * distance, 0), Quaternion.identity) as GameObject;
+        GameObject prefab = Instantiate(Resources.Load("beatBar", typeof(GameObject)), new Vector3(-1.9f, count * distance, 0), Quaternion.identity) as GameObject;
         //Instantiate(prefab, new Vector3(-2, count * distance, 0), Quaternion.identity);
 
 

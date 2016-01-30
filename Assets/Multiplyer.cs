@@ -11,6 +11,7 @@ public class Multiplyer : MonoBehaviour
     public Text gaugeText;
     private bool[] buttonSeqHit;
 
+    private int test;
 	// Use this for initialization
 	void Start ()
 	{
@@ -19,14 +20,14 @@ public class Multiplyer : MonoBehaviour
 	    gauge = 0;
 	    gaugeText.text = gauge.ToString();
 	    mutliplyerText.text = multiplyer.ToString();
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
         gaugeText.text = gauge.ToString();
         mutliplyerText.text = multiplyer.ToString();
-    }
+
+	}
 
     void successfulSeq()
     {
@@ -42,10 +43,15 @@ public class Multiplyer : MonoBehaviour
     {
         buttonSeqHit[button - 1] = true;
 
-        if(buttonSeqHit[0] &&
+        if (buttonSeqHit[0] &&
             buttonSeqHit[1] &&
             buttonSeqHit[2] &&
             buttonSeqHit[3])
-            buttonSeqHit= new bool[] {false, false, false, false};
+        {
+            buttonSeqHit = new bool[] { false, false, false, false };
+            successfulSeq();
+        }
+            
+
     }
 }
