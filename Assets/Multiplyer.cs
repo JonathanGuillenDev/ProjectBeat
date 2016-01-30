@@ -10,6 +10,7 @@ public class Multiplyer : MonoBehaviour
     public Text mutliplyerText;
     public Text gaugeText;
     private bool[] buttonSeqHit;
+    public counter counterhandler;
 
     private int test;
 	// Use this for initialization
@@ -36,6 +37,7 @@ public class Multiplyer : MonoBehaviour
         {
             gauge = 0;
             multiplyer++;
+            counterhandler.addRule();
         }
     }
 

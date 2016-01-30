@@ -81,6 +81,15 @@ public class counter : MonoBehaviour {
             
     }
 
+    public void addRule()
+    {
+        rules.addRule();
+    }
+
+    public void removeRule()
+    {
+        rules.removeRule();
+    }
 
     public class Rules
     {
