@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections.Generic;
 
  class Drum : MonoBehaviour {
@@ -8,7 +9,6 @@ using System.Collections.Generic;
     public bool keyDown;
     public KeyCode keybind;
     private Stack<Collider2D> colliding;
-    public Multiplyer multiplyerHandle;
 
     // Use this for initialization
     void Start () {
@@ -27,7 +27,7 @@ using System.Collections.Generic;
             keyDown = true;
             if (!colision)
             {
-                multiplyerHandler.miss();
+                    multiplyerHandler.miss();
             }
             else
             {
@@ -37,7 +37,7 @@ using System.Collections.Generic;
                 {
                     if (col.tag == "beat")
                     {
-                        multiplyerHandle.updateSeq(drumKey);
+                        multiplyerHandler.updateSeq(drumKey);
                       
                         Renderer[] something = col.transform.parent.GetComponents<Renderer>();
                         for (int i = 0; i < something.Length; i++)

@@ -54,7 +54,7 @@ public class Multiplyer : MonoBehaviour
     {
         counterhandler.removeRule();
         multiplyer --;
-        if (multiplyer < 1)
+        if (multiplyer <= 1)
         {
             multiplyer = 1;
             counterhandler.addRule();

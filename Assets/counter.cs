@@ -14,7 +14,6 @@ public class counter : MonoBehaviour {
         count = 1;
         rules = new Rules();
         rules.addRule();
-        rules.addRule();
     }
 	
 	// Update is called once per frame
@@ -117,7 +116,7 @@ public class counter : MonoBehaviour {
             {
                 return false;
             }
-            print("new rule"+newRule.GetHashCode().ToString());
+
             rules.Push(newRule);
             return true;
         }
@@ -126,7 +125,9 @@ public class counter : MonoBehaviour {
         {
             if (rules.Count > 0)
             {
+                print(rules.Count.ToString());
                 return rules.Pop();
+                
             }
 
             return null;
