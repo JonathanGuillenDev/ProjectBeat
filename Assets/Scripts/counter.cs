@@ -124,13 +124,24 @@ public class counter : MonoBehaviour {
             {
                 return false;
             }
+<<<<<<< HEAD:Assets/Scripts/counter.cs
+=======
+
+>>>>>>> origin/master:Assets/counter.cs
             rules.Push(newRule);
             return true;
         }
 
         public Rule removeRule()
         {
-            return rules.Pop();
+            if (rules.Count > 0)
+            {
+                print(rules.Count.ToString());
+                return rules.Pop();
+                
+            }
+
+            return null;
         }
 
         public bool getRulesForBeat(int button, int beatNum)
