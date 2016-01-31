@@ -64,13 +64,15 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\BeatBar.cs" />
     <Compile Include="Assets\Scripts\BeatGenerator.cs" />
-    <Compile Include="Assets\Scripts\Camera.cs" />
     <Compile Include="Assets\Scripts\Drum.cs" />
     <Compile Include="Assets\Scripts\Miss.cs" />
     <Compile Include="Assets\Scripts\Multiplyer.cs" />
     <Compile Include="Assets\Scripts\Trash.cs" />
+    <Compile Include="Assets\Scripts\Tutorial.cs" />
     <Compile Include="Assets\Scripts\beatMove.cs" />
     <Compile Include="Assets\Scripts\counter.cs" />
+    <Compile Include="Assets\Scripts\objectGame.cs" />
+    <Compile Include="Assets\Scripts\speaker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\level1.txt" />

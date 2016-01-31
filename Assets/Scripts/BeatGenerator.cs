@@ -1,20 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Runtime.InteropServices;
 using System.Timers;
 
 public class BeatGenerator : MonoBehaviour
 {
 
   //  private GameObject prefab;
+    public float x;
     public float y;
     public float y2;
     private float timer;
     public float BeatsPerMinute;
     private float secondsPerBeat;
+    public AudioSource aud;
     // Use this for initialization
     void Start()
     {
-       
+        aud = GetComponent<AudioSource>();
+
         secondsPerBeat = 60f/BeatsPerMinute;
         timer = 0;
         /*  print("LoadLevel");
@@ -54,7 +58,7 @@ public class BeatGenerator : MonoBehaviour
 
     void createSingle(float timer)
     {
-        GameObject prefab = Instantiate(Resources.Load("beatBar", typeof(GameObject)), new Vector3(-1.9f, y, 0), Quaternion.identity) as GameObject;
+        GameObject prefab = Instantiate(Resources.Load("beatBar", typeof(GameObject)), new Vector3(x, y, 0), Quaternion.identity) as GameObject;
 
         prefab.SendMessage("setSpeed", ( Mathf.Abs(y-y2) / (secondsPerBeat*4 - timer)));
     }
@@ -63,13 +67,21 @@ public class BeatGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer+= Time.deltaTime;
-        float MissedTime = 0;
-        if (timer > secondsPerBeat)
+        if (aud.isPlaying)
         {
-            MissedTime = timer - secondsPerBeat;
-            timer = 0;
-            createSingle(MissedTime);
+            timer += Time.deltaTime;
+            float MissedTime = 0;
+            if (timer > secondsPerBeat)
+            {
+                MissedTime = timer - secondsPerBeat;
+                timer = 0;
+                createSingle(MissedTime);
+            }
         }
+        else
+        {
+            Application.Quit();
+        }
+
     }
 }

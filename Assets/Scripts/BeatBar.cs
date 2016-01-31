@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Security.Cryptography.X509Certificates;
-s
+
 public class BeatBar : MonoBehaviour
 {
     public float speed;
+    public AudioSource aud;
     // Use this for initialization
     void Start () {
-	    
-	}
+       
+    }
 
     void setSpeed(float s)
     {

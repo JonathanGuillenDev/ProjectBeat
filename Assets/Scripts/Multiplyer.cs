@@ -8,14 +8,15 @@ public class Multiplyer : MonoBehaviour
     public int multiplyer;
     public int gauge;
     public int score;
-    public Text mutliplyerText;
-    public Text gaugeText;
-    public Text ScoreText;
+    public TextMesh mutliplyerText;
+    public TextMesh gaugeText;
+    public TextMesh ScoreText;
     private bool[] buttonSeqHit;
     public counter counterhandler;
     public int lastSeq;
     public AudioSource aud;
-    public AudioClip AudioGood;
+    public AudioClip AudioGoodMultiUp;
+    public AudioClip AudioGoodSeq;
     public AudioClip AudioBad;
 
     // Use this for initialization
@@ -43,19 +44,22 @@ public class Multiplyer : MonoBehaviour
     void successfulSeq()
     {
         score += 25 * multiplyer;
-
         gauge = gauge+ 25 - multiplyer+1;
+
+        aud.Stop();
         if (gauge >= 100)
         {
             gauge = 25;
             multiplyer++;
             counterhandler.addRule();
+            aud.clip = AudioGoodMultiUp;
         }
-        lastSeq = 0;
-
-        aud.Stop();
-        aud.clip = AudioGood;
+        else
+        {
+            aud.clip = AudioBad;
+        }
         aud.Play();
+        lastSeq = 0;
 
     }
 
@@ -63,7 +67,7 @@ public class Multiplyer : MonoBehaviour
     {
 
         aud.Stop();
-        aud.clip = AudioGood;
+        aud.clip = AudioBad;
         aud.Play();
 
         counterhandler.removeRule();

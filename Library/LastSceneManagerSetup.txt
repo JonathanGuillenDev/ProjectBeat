@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/set up.unity
+- path: Assets/tutorialStage.unity
   isLoaded: 1
   isActive: 1

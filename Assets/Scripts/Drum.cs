@@ -10,7 +10,6 @@ class Drum : MonoBehaviour {
     private Stack<Collider2D> colliding;
     public Multiplyer multiplyerHandle;
     public AudioSource aud;
-    public AudioClip clip;
     public AudioClip clip1;
     public AudioClip clip2;
     public AudioClip clip3;
@@ -26,7 +25,7 @@ class Drum : MonoBehaviour {
         colliding = new Stack<Collider2D>();
         keyDown = false;
         aud = GetComponent<AudioSource>();
-        clips = new AudioClip[]{ clip, clip1, clip2, clip3, clip4 };
+        clips = new AudioClip[]{ clip1, clip2, clip3, clip4 };
         waitForEnd = false;
         doubleTap = false;
         pos = transform.position;
@@ -70,7 +69,6 @@ class Drum : MonoBehaviour {
                     }
                     else if (col.tag == "rests")
                     {
-                        print("NO YOU've FUCKED UP NOW YOU'VE");
                         multiplyerHandle.miss();
 
                         Renderer[] something = col.transform.parent.GetComponents<Renderer>();
