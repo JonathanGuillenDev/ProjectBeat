@@ -15,8 +15,7 @@ class Drum : MonoBehaviour {
     public AudioClip clip3;
     public AudioClip clip4;
     private AudioClip[] clips;
-    private bool waitForEnd;
-    private bool doubleTap;
+   
     private Vector3 pos;
 
     // Use this for initialization
@@ -26,8 +25,6 @@ class Drum : MonoBehaviour {
         keyDown = false;
         aud = GetComponent<AudioSource>();
         clips = new AudioClip[]{ clip1, clip2, clip3, clip4 };
-        waitForEnd = false;
-        doubleTap = false;
         pos = transform.position;
     }
 
@@ -38,7 +35,7 @@ class Drum : MonoBehaviour {
         if (getKeyr && !keyDown)
         { 
             keyDown = true;
-            if (!colision && !waitForEnd)
+            if (!colision)
             {
                 multiplyerHandle.miss();
             }
@@ -111,11 +108,6 @@ class Drum : MonoBehaviour {
     void OnTriggerExit2D(Collider2D col)
     {
         colision = false;
-        if (col.tag == "BeatEnd" && waitForEnd)
-        {
-
-            multiplyerHandle.miss();
-        }
         colliding.Pop();
        
     }

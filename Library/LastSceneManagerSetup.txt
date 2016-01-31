@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/tutorialStage.unity
+- path: Assets/challangeStage.unity
   isLoaded: 1
   isActive: 1

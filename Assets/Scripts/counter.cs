@@ -44,8 +44,6 @@ public class counter : MonoBehaviour {
         if (col.name == "spot1")
         {
             count++;
-            //if (count % 2 == 0)
-              //  rules.addRule();
         }
 
     }
@@ -91,13 +89,17 @@ public class counter : MonoBehaviour {
     public void addRule()
     {
         rules.addRule();
+        
     }
 
     public void removeRule()
     {
         rules.removeRule();
     }
-
+    public int getRuleCount()
+    {
+        return rules.getRuleCount();
+    }
     public class Rules
     {
         public static int maxLimit = 16;
@@ -124,10 +126,7 @@ public class counter : MonoBehaviour {
             {
                 return false;
             }
-<<<<<<< HEAD:Assets/Scripts/counter.cs
-=======
 
->>>>>>> origin/master:Assets/counter.cs
             rules.Push(newRule);
             return true;
         }
@@ -136,12 +135,16 @@ public class counter : MonoBehaviour {
         {
             if (rules.Count > 0)
             {
-                print(rules.Count.ToString());
+
                 return rules.Pop();
-                
             }
 
             return null;
+        }
+
+        public int getRuleCount()
+        {
+            return rules.Count;
         }
 
         public bool getRulesForBeat(int button, int beatNum)

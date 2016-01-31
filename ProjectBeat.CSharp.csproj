@@ -67,12 +67,18 @@
     <Compile Include="Assets\Scripts\Drum.cs" />
     <Compile Include="Assets\Scripts\Miss.cs" />
     <Compile Include="Assets\Scripts\Multiplyer.cs" />
+    <Compile Include="Assets\Scripts\PanCamera.cs" />
+    <Compile Include="Assets\Scripts\TitleScreen.cs" />
     <Compile Include="Assets\Scripts\Trash.cs" />
     <Compile Include="Assets\Scripts\Tutorial.cs" />
     <Compile Include="Assets\Scripts\beatMove.cs" />
     <Compile Include="Assets\Scripts\counter.cs" />
+    <Compile Include="Assets\Scripts\credit.cs" />
+    <Compile Include="Assets\Scripts\globalData.cs" />
+    <Compile Include="Assets\Scripts\loseScreen.cs" />
     <Compile Include="Assets\Scripts\objectGame.cs" />
     <Compile Include="Assets\Scripts\speaker.cs" />
+    <Compile Include="Assets\Scripts\winScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\level1.txt" />

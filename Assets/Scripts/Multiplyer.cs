@@ -4,8 +4,6 @@ using System.Collections;
 
 public class Multiplyer : MonoBehaviour
 {
-
-    public int multiplyer;
     public int gauge;
     public int score;
     public TextMesh mutliplyerText;
@@ -24,11 +22,10 @@ public class Multiplyer : MonoBehaviour
 	{
         aud = GetComponent<AudioSource>();
         buttonSeqHit = new bool[] { false, false, false, false };
-        multiplyer = 1;
 	    gauge = 0;
 	    score = 0;
 	    gaugeText.text = gauge.ToString()+ "%";
-	    mutliplyerText.text = multiplyer.ToString()+"X";
+	    mutliplyerText.text = counterhandler.getRuleCount().ToString()+"X";
 	    ScoreText.text = ScoreText.ToString();
         lastSeq = 0;
 
@@ -37,20 +34,19 @@ public class Multiplyer : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
         gaugeText.text = gauge.ToString() + "%";
-        mutliplyerText.text = multiplyer.ToString() + "X"; ;
+        mutliplyerText.text = counterhandler.getRuleCount().ToString() + "x"; ;
 	    ScoreText.text = score.ToString();
 	}
 
     void successfulSeq()
     {
-        score += 25 * multiplyer;
-        gauge = gauge+ 25 - multiplyer+1;
+        score += 25 * counterhandler.getRuleCount();
+        gauge = gauge+ 25 - counterhandler.getRuleCount() + 1;
 
         aud.Stop();
         if (gauge >= 100)
         {
             gauge = 25;
-            multiplyer++;
             counterhandler.addRule();
             aud.clip = AudioGoodMultiUp;
         }
@@ -71,30 +67,28 @@ public class Multiplyer : MonoBehaviour
         aud.Play();
 
         counterhandler.removeRule();
-        multiplyer --;
-        if (multiplyer <= 1)
+        if (counterhandler.getRuleCount() < 1)
         {
-            multiplyer = 1;
             counterhandler.addRule();
         }
     }
 
     private void degradeGauge()
     {
-        if (multiplyer > 1)
+        if (counterhandler.getRuleCount() > 1)
         {
-            gauge -= multiplyer;
+            gauge -= counterhandler.getRuleCount();
             if (gauge < 0)
             {
                 miss();
-                gauge = 100 - multiplyer;
+                gauge = 100 - counterhandler.getRuleCount();
             }
         }
     }
 
     public void updateSeq(int button)
     {
-        score += 15*multiplyer;
+        score += 15* counterhandler.getRuleCount();
 
         buttonSeqHit[button - 1] = true;
         lastSeq++;

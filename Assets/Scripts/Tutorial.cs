@@ -14,11 +14,11 @@ public class Tutorial : MonoBehaviour
 	void Start () {
         dialog = new string[6];
    
-        dialog[0] = "Let not time slip by\n a heart beat \nshould not be skipped";
-        dialog[1] = "Hit something on each beat.";
-        dialog[2] = "A Sequence of four\n you will complete\n to exite the spirit\n and enlighten one self";
+        dialog[0] = "Let not time\nslip by\na heart beat\nshould not be\nskipped";
+        dialog[1] = "Hit one drum per beat.";
+        dialog[2] = "A Sequence of\nfour you must\ncomplete to\nachieve\nenlightenment";
         dialog[3] = "Once I've hit each of\n the four I'll be better?";
-        dialog[4] = "Careful not to hit \n the note \n of unharmouniousnes.";
+        dialog[4] = "Careful not\nto hit\nthe note of\n unharmouniousnes.";
         dialog[5] = "No hitting the X, Got it";
 
     }

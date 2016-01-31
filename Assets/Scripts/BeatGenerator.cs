@@ -14,6 +14,7 @@ public class BeatGenerator : MonoBehaviour
     public float BeatsPerMinute;
     private float secondsPerBeat;
     public AudioSource aud;
+    public Multiplyer handler;
     // Use this for initialization
     void Start()
     {
@@ -80,7 +81,14 @@ public class BeatGenerator : MonoBehaviour
         }
         else
         {
-            Application.Quit();
+            print(" else");
+            globalData.setScore(handler.score);
+            print("score");
+            globalData.setLast(Application.loadedLevelName);
+            if (handler.score > 1000)
+                Application.LoadLevel("win Screen");
+            else
+                Application.LoadLevel("lose Screen");
         }
 
     }
